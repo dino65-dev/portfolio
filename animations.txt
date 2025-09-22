@@ -1,0 +1,140 @@
+# Full Detailed Motion System Prompt
+
+## 🎯 Objective  
+Craft a **cohesive**, **responsive**, and **premium** animation system for your Next.js 15 portfolio. It must feel effortless—subtle glows, precise micro-interactions, soft depth—while respecting reduced-motion settings, AA contrast, and 60 fps on devices as low as mid-range mobiles.
+
+---
+
+## 🗝 Design Tokens (`tokens/motion.ts`)
+
+```ts
+export const motionTokens = {
+  easings: {
+    easeIn: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+    easeOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  },
+  durations: {
+    xs: 120,
+    sm: 160,
+    md: 220,
+    lg: 280,
+    xl: 360,
+  },
+  stagger: 80,
+  shadows: {
+    glow: '0 0 8px rgba(255,255,255,0.12)',
+  }
+};
+```
+
+---
+
+## 🛠 Global Behaviors
+
+- Page Transitions  
+  • Wrap `<RootLayout>` in `<AnimatePresence mode="wait">`  
+  • Variants:  
+    - enter: `{ opacity: 0→1, y: 12→0 }`  
+    - exit: `{ opacity: 1→0, y: 0→-8 }`  
+    - transition: easeIn, dur-md  
+
+- Scroll Reveals  
+  • Hook: `useSectionReveal()` – triggers once per session  
+  • Section variants: hidden `{ opacity:0, y:16 }` → visible `{ opacity:1, y:0, staggerChildren: tokens.stagger }`  
+
+- Theme Sync  
+  • BroadcastChannel + CSS variables crossfade (160 ms)  
+  • Do not animate large color surfaces; only overlay masks  
+
+- Reduced Motion  
+  • Hook: `useReducedMotion()` reading `prefers-reduced-motion`  
+  • Disable transforms; force instant opacity/frame swaps  
+
+---
+
+## 🗂 Page-by-Page Animation Specs
+
+### / (Home)
+
+- Hero Canvas Loop  
+  • Subtle particle drift at < 5 fps; pause off-screen via `IntersectionObserver`  
+  • Sync with CTA pulses at dur-lg  
+
+- Animated Stats  
+  • Number flip: `<motion.span>` with spring config `{ stiffness: 200, damping: 20 }`  
+  • Chart bars rise from y=100%→0  
+
+- CTA Buttons  
+  • Hover: glow shadow + scale 1.00→1.04 (var(--dur-sm), easeIn)  
+  • Tap: springy scale down then back  
+
+### /about
+
+- Bio Markdown  
+  • Paragraphs fade in sequentially (stagger: 70 ms)  
+  • Images zoom from 0.98→1.00, dur-md  
+
+- Timeline  
+  • Each event slides from left (x: -24→0) with delay `index * 80 ms`  
+  • Dot pulses on hover: scale 1.1→1.0, dur-xs  
+
+- Resume Download  
+  • Button hover + press as per global button variant  
+
+### /projects
+
+- Projects Grid  
+  • Stagger reveal of cards: 70 ms  
+  • Filter dropdown: slide-down menu opens y: -12→0, fade in, dur-sm  
+
+- Project Card  
+  • Idle: border-only, no shadow  
+  • Hover/Focus: elevate y: -6, ambient gradient sheen, dur-md  
+  • Open: content container crossfades in 220 ms  
+
+- Repo Header  
+  • Star/fork icons scale 0.9→1.0 on hover, dur-xs  
+
+### /blog
+
+- List View  
+  • Cards same as project cards  
+  • Date and excerpt slide in from y: 12→0  
+
+- Article Page  
+  • Headings fade/slide in as they enter viewport (once)  
+  • Code blocks: fade up + slight rotate (0.5 deg)  
+
+- Comments Widget  
+  • New comment form expands height 0→auto, dur-lg  
+  • Toast on post success slides in/out (offset X: 40 px, dur-sm)  
+
+### /contact
+
+- Form Fields  
+  • Focus ring fade-in: dur-xs, easeIn  
+  • Placeholder dim: opacity 1→0.6, dur-xs  
+
+- Validation  
+  • On error: horizontal shake 6 px peak, dur-xs  
+
+- Submit Button  
+  • Idle→Loading: crossfade to spinner, dur-sm  
+  • Success: background color morph (green), text crossfade “Sent!” for 1.2 s  
+
+- Toast Notifications  
+  • Appear: offset Y: 40→0 + fade in dur-sm  
+  • Progress bar fills width: 0→100% over lifespan  
+
+---
+
+## ✅ Implementation Checklist
+
+1. Define all tokens in `tokens/motion.ts`.  
+2. Create `variants/` directory with JSON/TS exports for each component.  
+3. Wrap App Router in `<AnimatePresence>` & `<LayoutGroup>`.  
+4. Build `useReducedMotion()` and `useSectionReveal()` hooks.  
+5. Apply `prefers-reduced-motion` in global CSS to disable motion.  
+6. Audit with Lighthouse; ensure CLS < 0.02, LCP < 2.5 s, TTI < 2 s.  
+7. Test keyboard focus parity and motion opt-out behavior.  
+8. Document tokens, variants, hooks, and page-specific notes in a “Motion Spec Sheet.”  
