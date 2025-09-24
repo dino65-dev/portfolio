@@ -1,0 +1,8 @@
+Update profile links and references to use the new username
+
+Updates all instances of the old username 'dino65-dev' to 'spedrox' across various components, project details, and server routes, including GitHub links and API calls. Removes the TimelineSection component.
+
+Replit-Commit-Author: Agent
+Replit-Commit-Session-Id: 5dc40e54-d354-4d4a-8aaf-70fcf4b2b972
+Replit-Commit-Checkpoint-Type: full_checkpoint
+Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/a2563ac0-32a9-449c-b6b5-4fb407adc18d/5dc40e54-d354-4d4a-8aaf-70fcf4b2b972/XrVEwEc
