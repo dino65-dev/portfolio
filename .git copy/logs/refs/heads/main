@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 ac0e03b4d77083b12eccee0c6dbd14a0b4a38e96 tadimes dim <47939732-tadimes248@users.noreply.replit.com> 1758690004 +0000	branch: Created from origin/main
+ac0e03b4d77083b12eccee0c6dbd14a0b4a38e96 e97883a9ce05654ca1046d7981b0386579113d1c tadimes248 <47939732-tadimes248@users.noreply.replit.com> 1758690033 +0000	commit: Update project configuration for Replit environment
+e97883a9ce05654ca1046d7981b0386579113d1c 7984ba09aae7867a28a4fb22942f5923c547f447 tadimes248 <47939732-tadimes248@users.noreply.replit.com> 1758690100 +0000	commit: Add script to demonstrate Azure OpenAI model capabilities
+7984ba09aae7867a28a4fb22942f5923c547f447 e5cd5f9b63db9e9f9503a973207ccd50870c7e77 tadimes248 <47939732-tadimes248@users.noreply.replit.com> 1758690491 +0000	commit: Add AI chat functionality using OpenAI and Langchain libraries
+e5cd5f9b63db9e9f9503a973207ccd50870c7e77 d917567ac7338f022bb837c9e3899dfeb417bad1 tadimes248 <47939732-tadimes248@users.noreply.replit.com> 1758690626 +0000	commit: Update project dependencies and add new tools
+d917567ac7338f022bb837c9e3899dfeb417bad1 04231a9e483f3ef9f7e35665a18cb3c82dfe66ee tadimes248 <47939732-tadimes248@users.noreply.replit.com> 1758690692 +0000	commit: Update agent configuration for improved platform compatibility
+04231a9e483f3ef9f7e35665a18cb3c82dfe66ee 37c8d25dea7c54767dea50feb929431e671b26c9 tadimes248 <47939732-tadimes248@users.noreply.replit.com> 1758691165 +0000	commit: Update GitHub username and improve AI chat error handling
+37c8d25dea7c54767dea50feb929431e671b26c9 b11bc0e4a14a7249bd52298b630b9088d4ddc438 tadimes248 <47939732-tadimes248@users.noreply.replit.com> 1758691198 +0000	commit: Improve chat AI by removing unnecessary logging statements
+b11bc0e4a14a7249bd52298b630b9088d4ddc438 af3b825ae070dd4ada8254a2a18f237fc024b7e9 tadimes248 <47939732-tadimes248@users.noreply.replit.com> 1758691212 +0000	commit: Update AI chat to resolve processing errors
+af3b825ae070dd4ada8254a2a18f237fc024b7e9 44506d131964dea4a8311aa4e4830e3d475694e8 tadimes248 <47939732-tadimes248@users.noreply.replit.com> 1758691288 +0000	commit: Resolve error preventing the AI chat from responding
